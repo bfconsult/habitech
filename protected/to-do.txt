@@ -1,0 +1,115 @@
+
+Clean up all interfaces for each object
+
+1=>'rule',          Renumber Create   Update   History  Rollback
+2=>'form',          Renumber Create   Update   History  Rollback
+3=>'formproperty',  #R#  #C#   #U#   History  Rollback
+4=>'actor',         Create   Update   History  Rollback
+5=>'package',       Renumber Create   Update   History  Rollback
+6=>'object',        #R  History  Rollback #LoadVersion
+7=>'objectproperty' Renumber Create   Update   History  Rollback
+8=>'flow',          Create   Update   History  Rollback
+9=>'step',          Renumber Create   Update   History  Rollback
+10=>'usecase',      Renumber Create   Update   History  Rollback
+11=>'photo',        Renumber Create   Update   History  Rollback
+12=>'iface',        Renumber Create   Update   History  Rollback #LoadVersion
+13=>'interfacetype',Renumber Create   Update   History  Rollback
+17=>'category',     Renumber Create   Update   History  #RB
+18=>'simple',       #R Create   Update   History  #RB 
+
+
+
+Order/re-order of:
+     Simple Requirements within Category
+     Objects
+     Object properties
+     Forms
+     Form properties
+?? other?
+
+
+## RELEASES
+
+Project Status - if its 'finished' the draft release doesn't show.
+
+Number displayed at the top of the add simple screen is incorrect, and probably un-necessary.
+
+## PHOTOS AND PROJECT DELETE
+
+change the photo filename to contain the project id.
+When the project is deleted, delete the files that have that ID in their filename.
+
+
+## ANALYST AND REVIEWER comments
+Use a Meta approach - maybe with the content links below. the string could be release_type_objectid
+then a link router can bust that apart and get the related object view.
+
+
+
+
+
+FEATURES
+
+### PROJECT
+Need a flag for auto-re-numbering.  
+If the project has been released, then the numbering should stop re-numbering.
+But add an explicit setting.
+
+### ACTOR
+Delete an actor either from a use case, or from a project requires 
+you to move their steps to another actor.
+Need to create the form to re-assign them.
+
+### TO DO
+
+To do which causes a flag.
+Maturity field, or this could be stored in the version? there is a status field there.
+Create is immediately 'initial', then a little button in the header to make
+ each UC move forward or backward
+
+### LIBRARY ITEMS.
+Tags on library items
+Search
+Classifications
+
+### TRACEABILITY
+
+Add some form of free form requirement - maybe with an excel upload.
+Have to think about the ease of adding connection between any change and a requirement.
+
+### PRINTING
+Set up a configurable cover page.
+Company logo
+
+
+### Collaborators
+have an approver switch and a circulation switch so they print out in a table on the document.
+also an edit switch, we already have upload.
+
+Roles
+
+Analyst – can edit requirements
+Tester – can run test cases.
+Client/approver – can sign off.
+Collaborator – Can view only.
+
+If you are the analyst (or any analyst employee) you can invite the other types.
+
+
+## VERSION CONTROL ###
+
+Roll Back for all objects individually - but some confusion on steps.
+
+If I have step-flow and flow is versioned, it doesn't really mean much as its only a container.
+
+
+Project Roll Back - at the moment use releases instead.
+Objects created after the roll back point (RBP) to be deleted.
+Objects active version to be the version prior to the RBP.
+
+Go through each object type by number.
+Go through each Object.Number by version, DESC.
+Prior to RBP delete any objects that are created.
+From the RBP back, set the active version to the first version encountered.
+
+
